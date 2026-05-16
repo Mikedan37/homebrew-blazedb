@@ -9,6 +9,7 @@ class Blazerepl < Formula
   depends_on "swift" => :build
 
   def install
+    ENV["SWIFTPM_DISABLE_SANDBOX"] = "1"
     system "swift", "build", "-c", "release", "--product", "blazedb"
     bin.install ".build/release/blazedb" => "blazedb"
     bin.install_symlink "blazedb" => "blazerepl"

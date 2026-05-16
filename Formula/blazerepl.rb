@@ -6,11 +6,17 @@ class Blazerepl < Formula
   license "MIT"
   head "https://github.com/Mikedan37/BlazeDB.git", branch: "main"
 
-  depends_on "swift" => :build
+  on_linux do
+    depends_on "swift" => :build
+  end
 
   def install
     ENV["SWIFTPM_DISABLE_SANDBOX"] = "1"
-    system "swift", "build", "-c", "release", "--product", "blazedb"
+    if OS.mac?
+      system "xcrun", "swift", "build", "-c", "release", "--product", "blazedb"
+    else
+      system "swift", "build", "-c", "release", "--product", "blazedb"
+    end
     bin.install ".build/release/blazedb" => "blazedb"
     bin.install_symlink "blazedb" => "blazerepl"
   end

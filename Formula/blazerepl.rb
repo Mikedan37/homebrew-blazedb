@@ -10,6 +10,10 @@ class Blazerepl < Formula
       url "https://github.com/Mikedan37/homebrew-blazedb/releases/download/v2.7.6-1/blazerepl-macos-arm64.tar.gz"
       sha256 "d561723adfdc0735ed33a33818f92b5a9f537db89c48bffcabdd010c5ce4aa65"
     end
+    on_intel do
+      url "https://github.com/Mikedan37/homebrew-blazedb/releases/download/v2.7.6-1/blazerepl-macos-x86_64.tar.gz"
+      sha256 "97680a65e828526063ffd4e2c152468d2e50ebbc9df5a0b8e1d1d8a2dbe41106"
+    end
   end
 
   on_linux do
